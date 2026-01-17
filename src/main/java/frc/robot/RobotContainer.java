@@ -10,8 +10,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Subsystems.Climber;
 import frc.robot.Subsystems.CoralHandler.CoralHandler;
-import frc.robot.Subsystems.DrivetrainSubsystem;
-import frc.robot.Subsystems.Processor;
 
 public class RobotContainer {
 
@@ -20,8 +18,6 @@ public class RobotContainer {
   
   private final Climber climber = new Climber(Constants.Climber.MotorID);
   private final CoralHandler elevator = new CoralHandler(Constants.Elevator.Lift.MotorID,Constants.Elevator.Arm.MotorID,Constants.Elevator.Intake.MotorID,Constants.Elevator.Intake.sensorPort);
-  private final Processor processor = new Processor();
-  public final DrivetrainSubsystem drivetrain = new DrivetrainSubsystem(Constants.Modules.moduleArray);
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 
@@ -88,10 +84,6 @@ public class RobotContainer {
   dpadr.onTrue(elevator.gotoL3());
   lsb.onTrue(elevator.release());
   rsb.onTrue(elevator.idle());
-  rb.whileTrue(processor.manualDown());
-  lb.whileTrue(processor.manualUp());
-  x.whileTrue(processor.manualIn());
-  b.whileTrue(processor.manualOut());
 
 
   DriverDpadUp.whileTrue(climber.climbCommand());
