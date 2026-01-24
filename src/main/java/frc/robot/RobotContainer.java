@@ -8,20 +8,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.Subsystems.Climber;
-import frc.robot.Subsystems.CoralHandler.CoralHandler;
-import frc.robot.Subsystems.DrivetrainSubsystem;
-import frc.robot.Subsystems.Processor;
 
 public class RobotContainer {
 
     //private Robot robot;
 
     
-    private final Climber climber = new Climber(Constants.Climber.MotorID);
-    private final CoralHandler elevator = new CoralHandler(Constants.Elevator.Lift.MotorID,Constants.Elevator.Arm.MotorID,Constants.Elevator.Intake.MotorID,Constants.Elevator.Intake.sensorPort);
-    private final Processor processor = new Processor();
-    public final DrivetrainSubsystem drivetrain = new DrivetrainSubsystem(Constants.Modules.moduleArray);
     SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 
@@ -69,44 +61,5 @@ public class RobotContainer {
         //SmartDashboard.putData(m_chooser);
     }
 
-    private void configureBindings() {
-        //drivetrain.setDefaultCommand(new DriveFieldRelative(drivetrain, DriveController));
-        
-        manualUp.whileTrue(elevator.manualUp());
-        manualDn.whileTrue(elevator.manualDown());
-        manualDpadRight.whileTrue(elevator.manualOut());
-        manualDpadLeft.whileTrue(elevator.manualIn());
-        manualY.whileTrue(elevator.manualIntake());
-        manualA.whileTrue(elevator.manualShoot());
-        manualX.whileTrue(elevator.manualSlowShoot());
-
-        rt.whileTrue(elevator.intakeAndHold());
-        rt.onFalse(elevator.idle());
-        dpadup.onTrue(elevator.gotoL4());
-        dpaddn.onTrue(elevator.gotoL1());
-        dpadl.onTrue(elevator.gotoL2());
-        dpadr.onTrue(elevator.gotoL3());
-        lsb.onTrue(elevator.release());
-        rsb.onTrue(elevator.idle());
-        rb.whileTrue(processor.manualDown());
-        lb.whileTrue(processor.manualUp());
-        x.whileTrue(processor.manualIn());
-        b.whileTrue(processor.manualOut());
-
-        DriverDpadUp.whileTrue(climber.climbCommand());
-        DriverDpadDn.whileTrue(climber.releaseCommand());
-
-
-        //xButton.onTrue(new IntakeSetAng(IntakeAng.Speaker));
-        //yButton.onTrue(new IntakeSetAng(IntakeAng.Amp));
-        //bButton.onTrue(new IntakeSetAng(IntakeAng.Extended));
-
-        //ltrigger.and(noteAquired.negate())
-        //    .whileTrue(new IntakeSetSpeed(IntakeSpeed.In));
-        //rtrigger.and(IntakeSubsystem.getInstance()::getAtSetpoint)
-        //    .whileTrue(new IntakeSetSpeed(IntakeSpeed.Out));
-
-        //dPadUp.onTrue(new ClimberExtend());
-        //dPadDown.onTrue(new ClimberRetract());
-    }
+    private void configureBindings() {}
 }

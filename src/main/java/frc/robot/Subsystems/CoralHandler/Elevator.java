@@ -25,8 +25,8 @@ public class Elevator extends SubsystemBase {
     //Constants.Elevator.Lift.kV,
     //Constants.Elevator.Lift.kA
     // );
-    private final PIDController fastLiftController = new PIDController(Constants.Elevator.Lift.kFastP, Constants.Elevator.Lift.kFastI, Constants.Elevator.Lift.kFastD);
-    private final PIDController slowLiftController = new PIDController(Constants.Elevator.Lift.kSlowP, Constants.Elevator.Lift.kSlowI, Constants.Elevator.Lift.kSlowD);
+    private final PIDController fastLiftController = new PIDController(0, 0, 0);
+    private final PIDController slowLiftController = new PIDController(0, 0, 0);
     private final SlewRateLimiter liftLimiter = new SlewRateLimiter(2);
 
     public Elevator(int liftMotorId) {
