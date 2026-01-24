@@ -15,7 +15,7 @@ import frc.robot.Constants;
 public class Arm extends SubsystemBase {
     private final SparkFlex armMotor;
     private final SparkAbsoluteEncoder armEncoder;
-    private final PIDController armController = new PIDController(Constants.Elevator.Arm.kP, Constants.Elevator.Arm.kI, Constants.Elevator.Arm.kD);
+    private final PIDController armController = new PIDController(0, 0, 0);
     private final SlewRateLimiter angLimiter = new SlewRateLimiter(2);
 
     public Arm(int armMotorId) {
