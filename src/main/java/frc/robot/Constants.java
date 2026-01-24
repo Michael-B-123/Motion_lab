@@ -43,8 +43,8 @@ public class Constants {
         };
         
     }
-                //TODO not really a todo, but i had to name it this way or java got mad at me
-    public interface Pconstants{ //TODO figure out the real values for this section 
+
+    public interface Pconstants{
 
         
 
